@@ -8,6 +8,19 @@ const Component1 = (props) => {
   return (
     <>
       <div className={`component1-container1 ${props.rootClassName} `}>
+        <svg className="adaptive-border" preserveAspectRatio="none">
+          <rect
+            x="1"
+            y="1"
+            width="calc(100% - 2px)"
+            height="calc(100% - 2px)"
+            fill="none"
+            stroke="#ffff00"
+            strokeWidth="2"
+            strokeDasharray="8 4"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
         <span className="component1-text1">
           {props.text1 ?? (
             <Fragment>
@@ -52,9 +65,6 @@ const Component1 = (props) => {
             min-height: 216px;
             align-items: flex-end;
             padding-top: var(--dl-layout-space-unit);
-            border-color: #ffff00;
-            border-style: dashed;
-            border-width: 2px;
             padding-left: var(--dl-layout-space-halfunit);
             flex-direction: column;
             background-size: cover;
@@ -96,6 +106,15 @@ const Component1 = (props) => {
           }
           .component1-text2 {
             display: inline-block;
+          }
+          .adaptive-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
           }
           .component1root-class-name {
             flex: 1;

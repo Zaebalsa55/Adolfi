@@ -810,7 +810,7 @@
 
 /* Медиазапросы для адаптивности */
 
-/* Десктоп - выше 1450px */
+/* Деск��оп - выше 1450px */
 @media (min-width: 1451px) {
   .desktop-nav {
     display: flex;
@@ -1617,6 +1617,13 @@
 /* SVG visibility controls */
 .frame1196-desktop-svg {
   display: block;
+  width: 100%;
+  height: auto;
+  preserveAspectRatio: none;
+}
+
+.frame1196-desktop-svg path {
+  vector-effect: non-scaling-stroke;
 }
 
 .frame1196-mobile-svg {
@@ -1624,6 +1631,10 @@
   width: 162px !important;
   height: 122px !important;
   margin-top: 7px;
+}
+
+.frame1196-mobile-svg path {
+  vector-effect: non-scaling-stroke;
 }
 
 /* Mobile devices only - show mobile SVG, hide desktop SVG */
