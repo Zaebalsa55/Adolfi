@@ -12,128 +12,82 @@ import ConnectionPath from '../components/ConnectionPath'
 const Frame1196 = (props) => {
   const translate = useTranslations()
   const [openFaq, setOpenFaq] = useState(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index)
   }
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   return (
     <>
       <div className="frame1196-container10">
         <Head>
-          <title>exported project</title>
+          <title>РемСтирМаш - Ремонт стиральных машин в Одессе</title>
         </Head>
-        <div data-thq="thq-dropdown" className="frame1196-dropdown1 list-item">
-          <ul data-thq="thq-dropdown-list" className="frame1196-dropdown-list">
-            <li
-              data-thq="thq-dropdown"
-              className="frame1196-dropdown2 list-item"
-            >
-              <div
-                data-thq="thq-dropdown-toggle"
-                className="frame1196-dropdown-toggle1"
-              >
-                <span className="frame1196-text100">
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_34VxzZ'),
-                    }}
-                  ></span>
-                </span>
-              </div>
-            </li>
-            <li
-              data-thq="thq-dropdown"
-              className="frame1196-dropdown3 list-item"
-            >
-              <div
-                data-thq="thq-dropdown-toggle"
-                className="frame1196-dropdown-toggle2"
-              >
-                <span className="frame1196-text101">
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_GzhAwS'),
-                    }}
-                  ></span>
-                </span>
-              </div>
-            </li>
-            <li
-              data-thq="thq-dropdown"
-              className="frame1196-dropdown4 list-item"
-            >
-              <div
-                data-thq="thq-dropdown-toggle"
-                className="frame1196-dropdown-toggle3"
-              >
-                <span className="frame1196-text102">
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_MVc81t'),
-                    }}
-                  ></span>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div className="frame1196-container11">
-          <div className="frame1196-container12">
-            <div className="frame1196-container13">
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: translate.raw('text_1vg8G6'),
-                  }}
-                ></span>
-              </span>
+
+        {/* Новый хеддер */}
+        <header className="header">
+          <div className="header-container">
+            {/* Логотип слева */}
+            <div className="header-logo">
+              <span className="logo-text">РемСтирМаш</span>
             </div>
-            <div className="frame1196-container14">
-              <div className="frame1196-container15">
-                <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_Yj_GgU'),
-                    }}
-                  ></span>
-                </span>
-              </div>
-              <div className="frame1196-container16">
-                <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_wGdk7X'),
-                    }}
-                  ></span>
-                </span>
-              </div>
-              <div className="frame1196-container17">
-                <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_Nr2N5K'),
-                    }}
-                  ></span>
-                </span>
-              </div>
-              <div className="frame1196-container18">
-                <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_jAh9q0'),
-                    }}
-                  ></span>
-                </span>
-                <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: translate.raw('text_sf5Z1e'),
-                    }}
-                  ></span>
-                </span>
+
+            {/* Навигация для десктопа (выше 1450px) */}
+            <nav className="header-nav desktop-nav">
+              <button className="nav-button">Главная</button>
+              <button className="nav-button">Выкуп б/у машин</button>
+              <button className="nav-button">Статьи</button>
+            </nav>
+
+            {/* Телефоны ��ля десктопа */}
+            <div className="header-phones desktop-phones">
+              <div className="phone-number">+38 (048) 777-77-77</div>
+              <div className="phone-number">+38 (063) 123-45-67</div>
+            </div>
+
+            {/* Мобильное меню (до 1450px) */}
+            <div className="tablet-header">
+              <button className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+              </button>
+              <div className="tablet-phones">
+                <div className="phone-number">+38 (048) 777-77-77</div>
+                <div className="phone-number">+38 (063) 123-45-67</div>
               </div>
             </div>
+
+            {/* Мобильное меню (до 768px) */}
+            <div className="mobile-header">
+              <button className={`mobile-menu-toggle mobile-only ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+              </button>
+              <div className="mobile-phone-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 16.92V19.92C22 20.52 21.52 21 20.92 21H3.08C2.48 21 2 20.52 2 19.92V4.08C2 3.48 2.48 3 3.08 3H20.92C21.52 3 22 3.48 22 4.08V7.08" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M14.5 2L9.5 22" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
           </div>
+        </header>
+
+        {/* Выпадающее меню вне хеддера */}
+        <div className={`dropdown-menu ${isMobileMenuOpen ? 'dropdown-menu-open' : ''}`}>
+          <nav className="dropdown-nav">
+            <button className="dropdown-nav-button">Главная</button>
+            <button className="dropdown-nav-button">Выкуп б/у машин</button>
+            <button className="dropdown-nav-button">Статьи</button>
+          </nav>
         </div>
         <div className="frame1196-container19">
           <div className="frame1196-container20">
@@ -185,7 +139,7 @@ const Frame1196 = (props) => {
 
             </div>
             <div className="frame1196-frame956">
-              <span className="frame1196-text112">Получить помощь</span>
+              <span className="frame1196-text112">Получ��ть помощь</span>
             </div>
           </div>
           <div className="frame1196-container21">
@@ -341,7 +295,7 @@ const Frame1196 = (props) => {
           <br />
           <span>
             Профессионально устраняем любые неисправности стиральных машин — от
-            самых простых до самых сложных.
+            самых просты�� до самых сложных.
           </span>
           <br />
           <span>
@@ -448,7 +402,7 @@ const Frame1196 = (props) => {
               <span className="frame1196-text136">
                 <span>Гарантийный cрок до 24</span>
                 <br />
-                <span>месяцев</span>
+                <span>ме��яцев</span>
               </span>
               <img
                 alt="Vector677574"
@@ -568,7 +522,7 @@ const Frame1196 = (props) => {
             />
             <div className="frame1196-frame9483">
               <span className="frame1196-text147">
-                ��амена втулки с��льника на п��оводном пол��
+                ��амена втулки с��льника на п��оводном пол���
               </span>
             </div>
           </div>
@@ -1011,8 +965,8 @@ const Frame1196 = (props) => {
           <br />
           <br />
           <span className="frame1196-text170">
-            Стиральная машина — это техника, которая должна работать исправно:
-            отжимать, стирать и радовать стабильност��ю. Но на практике даже
+            Стиральная машина — это техника, которая ��олжна работать исправно:
+            отжимать, стирать и радовать стабильност��ю. Но на практик�� даже
             самая н��дёжная техника со временем требует внима��ия. Механические
             дет��л�� изнашиваются, элек��роника даёт сбои, а б��товая нагрузка
             делает своё дело. Вот по��ему ремонт стиральных машин в Одессе — э��о
@@ -1024,10 +978,10 @@ const Frame1196 = (props) => {
           <br />
           <span className="frame1196-text173">
             Под брендом РемСтирМаш работает команда мастеров, каждый из которых
-            занимается ремонтом стиральных машин более десяти лет. Мы обучались
+            занимается ремонтом стиральных машин более десяти лет. Мы обуча��ись
             у специалистов европейских брендов, прошли сертификацию, посещали
             техкурсы и накопили опыт работы с техникой любых поколений. Сегодня
-            мы предлагаем ремонт стиральных машин в Одессе с гарантией,
+            мы предлагаем ремонт стиральн��х машин в Одессе с гарантией,
             использованием оригинальных запчастей и вниманием к каждой детали. В
             нашем распоряжении — профессионально оснащённая мастерская, склад
             комплектующих и выездной сервис. Мы находим даже редкие детали и
@@ -1141,7 +1095,7 @@ const Frame1196 = (props) => {
           <br />
           <span>
             Ниже на сайте — карта п��оезда к нашей мастерской, а также телефоны
-            службы поддержки. Звоните для записи, консу��ьтации или если заметили
+            службы поддержки. Звоните для записи, консу��ь��ации или если заметили
             сбои в работе вашей стиральной ��ашины. Мы всё объясним, рассчитаем
             стоимость и поможем.
           </span>
@@ -1196,10 +1150,7 @@ const Frame1196 = (props) => {
             background-image: url('/asfalt--dark--1920x1080%201.png');
           }
           .frame1196-dropdown1 {
-            cursor: pointer;
             display: none;
-            position: relative;
-            border-radius: var(--dl-layout-radius-radius2);
           }
           .frame1196-dropdown-list {
             left: 0%;
@@ -1314,15 +1265,7 @@ const Frame1196 = (props) => {
             font-weight: 500;
           }
           .frame1196-container11 {
-            flex: 1;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-self: center;
-            align-items: center;
-            flex-direction: row;
-            justify-content: flex-end;
-            background-color: #2d2c2c;
+            display: none;
           }
           .frame1196-container12 {
             width: 100%;
